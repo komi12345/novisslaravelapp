@@ -1,0 +1,236 @@
+/* Section Blog */
+.blog {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.blog-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Style for the hidden fourth article */
+.blog-card.hidden {
+    display: none;
+}
+
+.blog-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+.blog-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.blog-date {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.blog-date i {
+    margin-right: 5px;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.read-more i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--accent-color);
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+.blog-more {
+    text-align: center;
+    margin-top: 2rem;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+.btn-toggle-blog {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.btn-toggle-blog:hover {
+    background-color: #3d8b40;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Modal Styles */
+.blog-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--dark-color-rgb), 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease-in-out;
+    padding: 20px;
+}
+
+.blog-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.blog-modal-content {
+    background: var(--light-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out;
+    opacity: 0;
+}
+
+.blog-modal.active .blog-modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Close Icon Button */
+.blog-modal-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--dark-color);
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.blog-modal-close-icon:hover {
+    color: var(--danger-color);
+}
+
+/* Modal Body */
+.blog-modal-body {
+    padding: 25px 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.blog-modal-body h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.blog-modal-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.blog-modal-body p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Modal Footer */
+.blog-modal-footer {
+    padding: 15px 30px;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Back Button */
+.blog-modal-back-btn {
+    padding: 10px 25px;
+}
